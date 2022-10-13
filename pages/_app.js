@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import axios from 'axios';
+import { SessionProvider } from "next-auth/react";
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 import Layout from '../components/layout/Layout';
+import "../styles/app.css";
 import '../styles/global.css';
 import { getSingleMeal } from './meals/[id]';
-import "../styles/app.css";
-import { SessionProvider } from "next-auth/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -19,7 +19,7 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
-    "react/no-unescaped-entities": "off",
+    "react/no-unescaped-entities": 0,
     "@next/next/no-page-custom-font": "off",
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
