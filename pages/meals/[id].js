@@ -23,7 +23,7 @@ function SingleMeals() {
   const { id } = router.query;
   const { data, isLoading, isError } = useQuery(
     ['singleMeal', id],
-    getSingleMeal
+    getSingleMeal,
   );
   const [isSaved, setIsSaved] = React.useState(false);
 
@@ -127,7 +127,7 @@ function SingleMeals() {
           .split('.')
           .filter((sentence) => sentence !== '')
           .map((sentence) => (
-            <PointText key={sentence}>{sentence}.</PointText>
+            <PointText key={sentence}>{sentence}</PointText>
           ))}
       </div>
     </div>

@@ -15,7 +15,7 @@ const override = {
 };
 
 // getStaticProps
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`);
   const data = await res.json();
   return {
@@ -38,7 +38,7 @@ const getCategories = async () => {
   return data.categories;
 };
 
-function Meals() {
+function Meals({recipes}) {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
@@ -119,23 +119,24 @@ function Meals() {
       ) : null}
 
       <div className={classes.meals__container}>
-        {!isLoading &&
-          !isError &&
-          data &&
-          data.map((meal) => <SingleMealCard key={meal.idMeal} meal={meal} />)}
-        {!queryIsLoading &&
-          !queryError &&
-          queriedData &&
-          queriedData.map((meal) => (
+        {!isLoading 
+        && !isError 
+        && data 
+        && data.map((meal) => <SingleMealCard key={meal.idMeal} meal={meal} />)}
+        {!queryIsLoading 
+        && !queryError
+        && queriedData 
+        && queriedData.map((meal) => (
             <SingleMealCard key={meal.idMeal} meal={meal} />
           ))}
-        {data &&
-          queriedData &&
-          data.length === 0 &&
-          queriedData.length === 0 && <Text>No meals found</Text>}
+        {data 
+        && queriedData 
+        && data.length === 0 
+        && queriedData.length === 0 
+        && <Text>No meals found</Text>}
 
-        {add -
-          recipe.map((recipe) => (
+        {add 
+          - recipes.map((recipe) => (
             <div key={recipe.id}>
               <h3>{recipe.name}</h3>
             </div>

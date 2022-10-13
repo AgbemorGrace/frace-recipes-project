@@ -23,25 +23,23 @@ function AddRecipe() {
 
     const { food, area, time, type, ingredients, instructions } = data;
     if (
-      food === '' &&
-      area === '' &&
-      time === '' &&
-      type === '' &&
-      ingredients === '' &&
-      instructions === ''
+      food === '' 
+      && area === '' 
+      && time === '' 
+      && type === '' 
+      && ingredients === '' 
+      && instructions === ''
     ) {
       setError('Please provide all the information');
       return;
     }
     try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`,
-        data
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`, data
       );
       router.push('/savedMeals');
-    } catch (error) {
-      console.log(error);
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -53,8 +51,8 @@ function AddRecipe() {
             {error && <p className="text-2xl text-red-600">{error}</p>}
             <div className="p-6 pl-0 pt-2 text-7xl text-gray-900 dark:text-white font-semibold">
               <h2>
-                {' '}
-                <span className="text-orange-500">Frace</span>Recipes🍂
+                <span className="text-orange-500">Frace</span>
+                Recipes🍂
               </h2>
             </div>
             <h5 className=" p-6 pl-0 pb-10 text-4xl font-medium text-gray-900 dark:text-white">
@@ -84,7 +82,7 @@ function AddRecipe() {
                   htmlFor="area"
                   className=" text-4xl block mb-2 font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Area/ Country
+                  Area / Country
                 </label>
                 <input
                   type="string"
@@ -110,7 +108,7 @@ function AddRecipe() {
                   id="time"
                   name="time"
                   onChange={handleChange}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-4xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-4xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option selected="">Select a Time of the Day</option>
                   <option value="breakfast">Breakfast</option>
@@ -129,7 +127,7 @@ function AddRecipe() {
                   id="type"
                   name="type"
                   onChange={handleChange}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-4xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-4xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option selected="">Select a type of food</option>
                   <option value="beef">Beef</option>
@@ -200,8 +198,7 @@ function AddRecipe() {
               type="submit"
               className="w-40 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-3xl px-5 py-2.5 text-center dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-orange-600"
             >
-              {' '}
-              Submit{' '}
+              Submit
             </button>
           </form>
         </div>

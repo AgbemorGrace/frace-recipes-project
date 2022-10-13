@@ -12,17 +12,14 @@ export default NextAuth({
       async authorize(credentials) {
         await db.connect();
 
-        //find user
         const user = await User.findOne({
           email: credentials.email,
         });
 
         console.log(user);
 
-        //disconnect database
         await db.disconnect();
 
-        //check for user's database
         if (user && bcrypt.compareSync(credentials.password, user.password)) {
           return {
             _id: user._id,

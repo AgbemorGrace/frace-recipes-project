@@ -34,7 +34,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   }, []);
 
   return (
-    <>
       <SessionProvider>
         <Head>
           <title>Frace Recipe</title>
@@ -58,7 +57,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </SessionProvider>
-    </>
   );
 }
 

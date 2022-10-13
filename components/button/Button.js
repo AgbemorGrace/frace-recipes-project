@@ -27,7 +27,7 @@ function Button({
       className={clsx(
         classes.button,
         classes[`variant__${variant}`],
-        className
+        className,
       )}
       onClick={onClickHandler}
     >

@@ -40,9 +40,10 @@ function SavedMeals({ recipes }) {
         My Saved Meal List
       </Title>
       <div className={classes.list_container}>
-        {savedMealsId.length <= 0 && <Text>You have no saved meals</Text>}
-        {result &&
-          result.map(({ data, isLoading }, index) => {
+        {savedMealsId.length <= 0 
+          && <Text>You have no saved meals</Text>}
+        {result 
+          && result.map(({ data, isLoading }, index) => {
             if (isLoading) {
               return (
                 <BeatLoader

@@ -111,7 +111,7 @@ function Login() {
             Login
           </button>
           <div className="text-3xl font-medium text-gray-500 dark:text-gray-300">
-            Not registered?{' '}
+            Not registered?
             <Link
               href="./register"
               className="text-orange-700 hover:underline dark:text-orange-500"

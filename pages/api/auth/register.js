@@ -1,6 +1,6 @@
+import bcrypt from 'bcryptjs';
 import db from '../../../lib/dbConnect';
 import User from '../../../models/user';
-import bcrypt from 'bcryptjs';
 
 async function handler(req, res) {
   if (req.method !== 'POST') {
