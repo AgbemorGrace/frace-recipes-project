@@ -18,10 +18,10 @@ const override = {
 export const getStaticProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`);
   const data = await res.json();
-  return{
-    props: {recipes: data}
-  }
-}
+  return {
+    props: { recipes: data },
+  };
+};
 
 const getMeals = async ({ queryKey }) => {
   const { data } = await axios.get(`filter.php?c=${queryKey[1]}`);
@@ -44,20 +44,27 @@ function Meals() {
   const [query, setQuery] = useState('');
 
   const {
-    data: categories, isLoading: categoryIsLoading, isError: categoryIsError, error: categoryError,
+    data: categories,
+    isLoading: categoryIsLoading,
+    isError: categoryIsError,
+    error: categoryError,
   } = useQuery(['catagories'], getCategories);
 
   const {
-    data: queriedData, isLoading: queryIsLoading, isError: queryError,
+    data: queriedData,
+    isLoading: queryIsLoading,
+    isError: queryError,
   } = useQuery(['mealsByQuery', query], getQueriedMeals, {
     enabled: query !== '',
   });
 
-  const {
-    data, isLoading, isError,
-  } = useQuery(['mealsByCategory', selectedCategory], getMeals, {
-    enabled: query === '',
-  });
+  const { data, isLoading, isError } = useQuery(
+    ['mealsByCategory', selectedCategory],
+    getMeals,
+    {
+      enabled: query === '',
+    }
+  );
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -86,7 +93,9 @@ function Meals() {
   return (
     <div className={classes.meals__page}>
       <SearchBar searchText={searchText} setSearchText={setSearchText} />
-      <PointText className={classes.text}>search meals or select categories from below.</PointText>
+      <PointText className={classes.text}>
+        search meals or select categories from below.
+      </PointText>
 
       <Categories
         setSelectedCategory={setSelectedCategory}
@@ -100,30 +109,37 @@ function Meals() {
 
       {isLoading || categoryIsLoading ? (
         <div className={classes.loadingSpinner}>
-          <BeatLoader color="#fff" loading={isLoading || categoryIsLoading} cssOverride={override} size={20} />
+          <BeatLoader
+            color='#fff'
+            loading={isLoading || categoryIsLoading}
+            cssOverride={override}
+            size={20}
+          />
         </div>
       ) : null}
 
       <div className={classes.meals__container}>
-        { !isLoading && !isError
-        && data && data.map((meal) => (
-          <SingleMealCard key={meal.idMeal} meal={meal} />
-        ))}
-        { !queryIsLoading && !queryError
-        && queriedData && queriedData.map((meal) => (
-          <SingleMealCard key={meal.idMeal} meal={meal} />
-        ))}
-        {data && queriedData && data.length === 0 && queriedData.length === 0 && (
-          <Text>No meals found</Text>
-        )}
-        
-        
-        {add-recipe.map(recipe =>(
-          <div key = {recipe.id}>
-            <h3>{recipe.name}</h3>
-          </div>
-        ))}
-        
+        {!isLoading &&
+          !isError &&
+          data &&
+          data.map((meal) => <SingleMealCard key={meal.idMeal} meal={meal} />)}
+        {!queryIsLoading &&
+          !queryError &&
+          queriedData &&
+          queriedData.map((meal) => (
+            <SingleMealCard key={meal.idMeal} meal={meal} />
+          ))}
+        {data &&
+          queriedData &&
+          data.length === 0 &&
+          queriedData.length === 0 && <Text>No meals found</Text>}
+
+        {add -
+          recipe.map((recipe) => (
+            <div key={recipe.id}>
+              <h3>{recipe.name}</h3>
+            </div>
+          ))}
       </div>
     </div>
   );

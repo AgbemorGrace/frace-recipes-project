@@ -7,12 +7,11 @@ function CategoryItem({ category, selectedCategory, onClickHandler }) {
 
   return (
     <button
-      type="button"
+      type='button'
       className={clsx(classes.item, isSelected && classes.item__selected)}
       onClick={onClickHandler}
     >
       {category.strCategory}
-
     </button>
   );
 }

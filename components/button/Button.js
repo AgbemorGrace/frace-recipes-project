@@ -7,7 +7,7 @@ function ButtonWithLink({ link = '/', children, variant = 'secondary' }) {
   return (
     <Link href={link}>
       <a
-        type="button"
+        type='button'
         className={`${classes.button} ${classes[`variant__${variant}`]}`}
       >
         {children}
@@ -16,12 +16,19 @@ function ButtonWithLink({ link = '/', children, variant = 'secondary' }) {
   );
 }
 function Button({
-  children, variant = 'secondary', className, onClickHandler,
+  children,
+  variant = 'secondary',
+  className,
+  onClickHandler,
 }) {
   return (
     <button
-      type="button"
-      className={clsx(classes.button, classes[`variant__${variant}`], className)}
+      type='button'
+      className={clsx(
+        classes.button,
+        classes[`variant__${variant}`],
+        className
+      )}
       onClick={onClickHandler}
     >
       {children}

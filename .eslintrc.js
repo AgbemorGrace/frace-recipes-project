@@ -3,24 +3,16 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'next/core-web-vitals',
-    'plugin:react/recommended',
-    'airbnb',
-  ],
-  overrides: [
-  ],
+  extends: ['next/core-web-vitals', 'plugin:react/recommended', 'airbnb'],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'react-hooks',
-  ],
+  plugins: ['react', 'react-hooks'],
   rules: {
-    "react/no-unescaped-entities": 0,
-    "@next/next/no-page-custom-font": "off",
+    'react/no-unescaped-entities': 0,
+    '@next/next/no-page-custom-font': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react/react-in-jsx-scope': 0,

@@ -21,7 +21,10 @@ export const getSingleMeal = async ({ queryKey }) => {
 function SingleMeals() {
   const router = useRouter();
   const { id } = router.query;
-  const { data, isLoading, isError } = useQuery(['singleMeal', id], getSingleMeal);
+  const { data, isLoading, isError } = useQuery(
+    ['singleMeal', id],
+    getSingleMeal
+  );
   const [isSaved, setIsSaved] = React.useState(false);
 
   useEffect(() => {
@@ -42,12 +45,12 @@ function SingleMeals() {
   }
 
   if (isLoading || !data) {
-    return (
-      <BeatLoader color="#fff" size={20} />
-    );
+    return <BeatLoader color='#fff' size={20} />;
   }
 
-  const ingredients = Object.keys(data).filter((key) => key.startsWith('strIngredient')).filter((key) => data[key] !== '' && data[key] !== null);
+  const ingredients = Object.keys(data)
+    .filter((key) => key.startsWith('strIngredient'))
+    .filter((key) => data[key] !== '' && data[key] !== null);
 
   const ingredientsWithMeasures = ingredients.map((key, index) => ({
     index: index + 1,
@@ -74,43 +77,44 @@ function SingleMeals() {
     <div className={classes.pageWrapper}>
       <div className={classes.topContainer}>
         <div className={classes.img}>
-          <Image src={data.strMealThumb} height={300} width={300} alt={data.strMeal} />
+          <Image
+            src={data.strMealThumb}
+            height={300}
+            width={300}
+            alt={data.strMeal}
+          />
         </div>
         <div className={classes.info}>
-          <Title variant="primary">{data.strMeal}</Title>
+          <Title variant='primary'>{data.strMeal}</Title>
           <PointText className={classes.infoText}>
-            Category:
-            {' '}
-            {data.strCategory}
+            Category: {data.strCategory}
           </PointText>
           <PointText className={classes.infoText}>
-            Area:
-            {' '}
-            {data.strArea}
+            Area: {data.strArea}
           </PointText>
           <PointText className={classes.infoText}>
-            tags:
-            {' '}
-            {data?.strTags?.split(',').join(', ')}
+            tags: {data?.strTags?.split(',').join(', ')}
           </PointText>
 
           {isSaved && (
-            <Text className={classes.greenText}>You already saved the meal.</Text>
+            <Text className={classes.greenText}>
+              You already saved the meal.
+            </Text>
           )}
-          <Button variant="primary" className={classes.saveButton} onClickHandler={handleSaveButtonClick}>
+          <Button
+            variant='primary'
+            className={classes.saveButton}
+            onClickHandler={handleSaveButtonClick}
+          >
             {isSaved ? (
               <>
-                <FaHeartBroken />
-                {' '}
-                Remove
+                <FaHeartBroken /> Remove
               </>
             ) : (
               <>
-                <FaHeart className={classes.saveIcon} />
-                { ' '}
-                save
+                <FaHeart className={classes.saveIcon} /> save
               </>
-            ) }
+            )}
           </Button>
         </div>
       </div>
@@ -119,12 +123,12 @@ function SingleMeals() {
       </div>
       <div className={classes.instructions}>
         <Title>Instructions</Title>
-        {data.strInstructions.split('.').filter((sentence) => sentence !== '').map((sentence) => (
-          <PointText key={sentence}>
-            {sentence}
-            .
-          </PointText>
-        ))}
+        {data.strInstructions
+          .split('.')
+          .filter((sentence) => sentence !== '')
+          .map((sentence) => (
+            <PointText key={sentence}>{sentence}.</PointText>
+          ))}
       </div>
     </div>
   );

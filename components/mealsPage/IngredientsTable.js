@@ -12,14 +12,10 @@ function IngredientsTable({ ingredientsWithMeasures }) {
           {ingredientsWithMeasures.map((ingredient) => (
             <tr key={ingredient.index}>
               <td>
-                <Text>
-                  {ingredient.ingredient}
-                </Text>
+                <Text>{ingredient.ingredient}</Text>
               </td>
               <td>
-                <Text>
-                  {ingredient.measure}
-                </Text>
+                <Text>{ingredient.measure}</Text>
               </td>
             </tr>
           ))}
