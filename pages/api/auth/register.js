@@ -1,17 +1,17 @@
-import db from '../../../lib/dbConnect';
-import User from '../../../models/user';
-import bcrypt from 'bcryptjs';
+import db from "../../../lib/dbConnect";
+import User from "../../../models/user";
+import bcrypt from "bcryptjs";
 
 async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Only Post method is not allowed' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Only Post method is not allowed" });
   }
   const { firstName, lastName, email, password } = req.body;
   await db.connect();
 
   const emailExists = await User.findOne({ email });
   if (emailExists) {
-    res.status(409).json({ error: 'Email already in use' });
+    res.status(409).json({ error: "Email already in use" });
     await db.disconnect();
     return;
   }

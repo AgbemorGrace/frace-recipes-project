@@ -1,9 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import classes from './HeroSection.module.scss';
-import HeroImg from '../../images/hero_img.jpg';
-import Text from '../text/Text';
-import ButtonWithLink from '../button/Button';
+import React from "react";
+import Image from "next/image";
+import classes from "./HeroSection.module.scss";
+import HeroImg from "../../images/hero_img.jpg";
+import Text from "../text/Text";
+import ButtonWithLink from "../button/Button";
 
 function HeroSection() {
   return (
@@ -16,18 +16,18 @@ function HeroSection() {
           <br />
           <Text>home of food recipes you can trust</Text>
           <div className={classes.hero__buttons}>
-            <div className='rounded-full p-2 px-3 hover:bg-orange-600'>
-              <ButtonWithLink link='/meals' variant='primary'>
+            <div className="rounded-full p-2 px-3 hover:bg-orange-600">
+              <ButtonWithLink link="/meals" variant="primary">
                 Explore Meals
               </ButtonWithLink>
             </div>
-            <div className='rounded-full p-2 px-3 hover:bg-orange-600'>
-              <ButtonWithLink link='/savedMeals'>Saved Meals</ButtonWithLink>
+            <div className="rounded-full p-2 px-3 hover:bg-orange-600">
+              <ButtonWithLink link="/savedMeals">Saved Meals</ButtonWithLink>
             </div>
           </div>
         </div>
         <div className={classes.hero__img}>
-          <Image src={HeroImg} alt='Frace-Recipe' />
+          <Image src={HeroImg} alt="Frace-Recipe" />
         </div>
       </div>
     </section>

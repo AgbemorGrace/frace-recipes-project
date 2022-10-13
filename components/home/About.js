@@ -1,7 +1,7 @@
-import React from 'react';
-import Text from '../text/Text';
-import Title from '../text/Title';
-import classes from './About.module.scss';
+import React from "react";
+import Text from "../text/Text";
+import Title from "../text/Title";
+import classes from "./About.module.scss";
 
 function About() {
   return (
@@ -19,10 +19,10 @@ function About() {
         your saved list.
         <br />
         <br />
-        <span className='text-orange-600 text-5xl'>Frace Recipes</span> was
-        developed by{' '}
-        <span className='text-orange-600'>Mr. Franklin Boachie- Yiadom</span>{' '}
-        and <span className='text-orange-600'>Madam Grace Agbemor</span> in the
+        <span className="text-orange-600 text-5xl">Frace Recipes</span> was
+        developed by{" "}
+        <span className="text-orange-600">Mr. Franklin Boachie- Yiadom</span>{" "}
+        and <span className="text-orange-600">Madam Grace Agbemor</span> in the
         year 2022 at Pre-Mest CodeCoast training. It was built to help users
         design food menu for the day or month and also solve the problem of
         people finding it difficult to try out new delicacies in their kitchen,

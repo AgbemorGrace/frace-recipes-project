@@ -1,6 +1,6 @@
-import React from 'react';
-import CategoryItem from './CategoryItem';
-import classes from './Categories.module.scss';
+import React from "react";
+import CategoryItem from "./CategoryItem";
+import classes from "./Categories.module.scss";
 
 export default function Categories({
   setSelectedCategory,
@@ -31,7 +31,7 @@ export default function Categories({
           category={item}
           onClickHandler={() => {
             setSelectedCategory(item.strCategory);
-            setQuery('');
+            setQuery("");
           }}
           selectedCategory={selectedCategory}
         />

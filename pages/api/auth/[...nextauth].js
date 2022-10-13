@@ -1,13 +1,13 @@
-import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcryptjs';
-import db from '../../../lib/dbConnect';
-import User from '../../../models/user';
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
+import db from "../../../lib/dbConnect";
+import User from "../../../models/user";
 
 export default NextAuth({
   providers: [
     CredentialsProvider({
-      type: 'credentials',
+      type: "credentials",
       credentials: {},
       async authorize(credentials) {
         await db.connect();
@@ -32,12 +32,12 @@ export default NextAuth({
           };
         }
 
-        throw new Error('Invalid email or password');
+        throw new Error("Invalid email or password");
       },
     }),
   ],
   pages: {
-    signIn: '/login',
-    error: '/login',
+    signIn: "/login",
+    error: "/login",
   },
 });
