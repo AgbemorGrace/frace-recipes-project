@@ -1,17 +1,17 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import axios from "axios";
-import { useRouter } from "next/router";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 function register() {
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -22,21 +22,21 @@ function register() {
     console.log(data);
     const { firstName, lastName, email, password, confirmPassword } = data;
     if (
-      firstName === "" &&
-      lastName === "" &&
-      email === "" &&
-      password === "" &&
-      confirmPassword === ""
+      firstName === '' &&
+      lastName === '' &&
+      email === '' &&
+      password === '' &&
+      confirmPassword === ''
     ) {
-      setError("Please provide all the information");
+      setError('Please provide all the information');
       return;
     }
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      setError("Please enter a valid email ");
+      setError('Please enter a valid email ');
       return;
     }
     if (password !== confirmPassword) {
-      setError("passwrds do not match");
+      setError('passwrds do not match');
       return;
     }
     try {
@@ -44,7 +44,7 @@ function register() {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register`,
         data
       );
-      router.push("/");
+      router.push('/');
     } catch (error) {
       setError(error.message);
     }
@@ -56,7 +56,7 @@ function register() {
           {error && <p className="text-2xl text-red-600">{error}</p>}
           <div className="p-6 pl-0 pt-2 text-7xl text-gray-900 dark:text-white font-semibold">
             <h2>
-              {" "}
+              {' '}
               <span className="text-orange-500">Frace</span>Recipes🍂
             </h2>
           </div>
@@ -161,11 +161,11 @@ function register() {
             type="submit"
             className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-3xl px-5 py-2.5 text-center dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-orange-600"
           >
-            {" "}
-            Register{" "}
+            {' '}
+            Register{' '}
           </button>
           <div className="text-3xl font-medium text-gray-500 dark:text-gray-300">
-            Already have an account?{" "}
+            Already have an account?{' '}
             <Link
               href="./login"
               className="text-orange-700 hover:underline dark:text-orange-500"

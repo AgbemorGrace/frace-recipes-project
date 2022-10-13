@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const getPosts = async (id) => {
   const res = await axios.get(

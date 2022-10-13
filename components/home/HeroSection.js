@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import classes from "./HeroSection.module.scss";
-import HeroImg from "../../images/hero_img.jpg";
-import Text from "../text/Text";
-import ButtonWithLink from "../button/Button";
+import React from 'react';
+import Image from 'next/image';
+import classes from './HeroSection.module.scss';
+import HeroImg from '../../images/hero_img.jpg';
+import Text from '../text/Text';
+import ButtonWithLink from '../button/Button';
 
 function HeroSection() {
   return (

@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import React from "react";
-import classes from "./CategoryItem.module.scss";
+import clsx from 'clsx';
+import React from 'react';
+import classes from './CategoryItem.module.scss';
 
 function CategoryItem({ category, selectedCategory, onClickHandler }) {
   const isSelected = category.strCategory === selectedCategory;

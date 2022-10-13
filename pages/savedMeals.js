@@ -1,12 +1,12 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { useQueries } from "@tanstack/react-query";
-import { BeatLoader } from "react-spinners";
-import PointText from "../components/text/PointText";
-import Text from "../components/text/Text";
-import Title from "../components/text/Title";
-import { getSingleMeal } from "./meals/[id]";
-import classes from "./savedMeals.module.scss";
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { useQueries } from '@tanstack/react-query';
+import { BeatLoader } from 'react-spinners';
+import PointText from '../components/text/PointText';
+import Text from '../components/text/Text';
+import Title from '../components/text/Title';
+import { getSingleMeal } from './meals/[id]';
+import classes from './savedMeals.module.scss';
 
 // getStaticProps
 export const getStaticProps = async () => {
@@ -22,15 +22,15 @@ function SavedMeals({ recipes }) {
   const [savedMealsId, setSavedMealsId] = useState([]);
 
   const queries = savedMealsId.map((id) => ({
-    queryKey: ["singleMeal", id],
+    queryKey: ['singleMeal', id],
     queryFn: getSingleMeal,
   }));
 
   const result = useQueries({ queries });
 
   useEffect(() => {
-    if (localStorage.getItem("savedMeals")) {
-      setSavedMealsId(JSON.parse(localStorage.getItem("savedMeals")));
+    if (localStorage.getItem('savedMeals')) {
+      setSavedMealsId(JSON.parse(localStorage.getItem('savedMeals')));
     }
   }, []);
 

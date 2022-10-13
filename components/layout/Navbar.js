@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import classes from "./Navbar.module.scss";
-import logo from "../../images/FraceLogo.png";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import classes from './Navbar.module.scss';
+import logo from '../../images/FraceLogo.png';
 
 function Navbar() {
   return (

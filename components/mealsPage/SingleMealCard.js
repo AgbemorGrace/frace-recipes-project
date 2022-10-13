@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import Title from "../text/Title";
-import classes from "./SingleMealCard.module.scss";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import Title from '../text/Title';
+import classes from './SingleMealCard.module.scss';
 
 function SingleMealCard({ meal }) {
   return (

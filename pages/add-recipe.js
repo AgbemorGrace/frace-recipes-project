@@ -1,17 +1,17 @@
-import axios from "axios";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 function AddRecipe() {
   const [data, setData] = useState({
-    food: "",
-    area: "",
-    time: "",
-    type: "",
-    ingredients: "",
-    instructions: "",
+    food: '',
+    area: '',
+    time: '',
+    type: '',
+    ingredients: '',
+    instructions: '',
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -23,14 +23,14 @@ function AddRecipe() {
 
     const { food, area, time, type, ingredients, instructions } = data;
     if (
-      food === "" &&
-      area === "" &&
-      time === "" &&
-      type === "" &&
-      ingredients === "" &&
-      instructions === ""
+      food === '' &&
+      area === '' &&
+      time === '' &&
+      type === '' &&
+      ingredients === '' &&
+      instructions === ''
     ) {
-      setError("Please provide all the information");
+      setError('Please provide all the information');
       return;
     }
     try {
@@ -38,7 +38,7 @@ function AddRecipe() {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`,
         data
       );
-      router.push("/savedMeals");
+      router.push('/savedMeals');
     } catch (error) {
       console.log(error);
       setError(error.message);
@@ -53,7 +53,7 @@ function AddRecipe() {
             {error && <p className="text-2xl text-red-600">{error}</p>}
             <div className="p-6 pl-0 pt-2 text-7xl text-gray-900 dark:text-white font-semibold">
               <h2>
-                {" "}
+                {' '}
                 <span className="text-orange-500">Frace</span>Recipes🍂
               </h2>
             </div>
@@ -200,8 +200,8 @@ function AddRecipe() {
               type="submit"
               className="w-40 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-3xl px-5 py-2.5 text-center dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-orange-600"
             >
-              {" "}
-              Submit{" "}
+              {' '}
+              Submit{' '}
             </button>
           </form>
         </div>

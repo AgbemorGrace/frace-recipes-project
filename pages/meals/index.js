@@ -1,17 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import BeatLoader from "react-spinners/BeatLoader";
-import Categories from "../../components/category/Categories";
-import SearchBar from "../../components/mealsPage/SearchBar";
-import SingleMealCard from "../../components/mealsPage/SingleMealCard";
-import PointText from "../../components/text/PointText";
-import Text from "../../components/text/Text";
-import classes from "./meals.module.scss";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import BeatLoader from 'react-spinners/BeatLoader';
+import Categories from '../../components/category/Categories';
+import SearchBar from '../../components/mealsPage/SearchBar';
+import SingleMealCard from '../../components/mealsPage/SingleMealCard';
+import PointText from '../../components/text/PointText';
+import Text from '../../components/text/Text';
+import classes from './meals.module.scss';
 
 const override = {
-  display: "inline-block",
-  margin: "0 auto",
+  display: 'inline-block',
+  margin: '0 auto',
 };
 
 // getStaticProps
@@ -34,35 +34,35 @@ const getQueriedMeals = async ({ queryKey }) => {
 };
 
 const getCategories = async () => {
-  const { data } = await axios.get("/categories.php");
+  const { data } = await axios.get('/categories.php');
   return data.categories;
 };
 
 function Meals() {
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [searchText, setSearchText] = useState("");
-  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchText, setSearchText] = useState('');
+  const [query, setQuery] = useState('');
 
   const {
     data: categories,
     isLoading: categoryIsLoading,
     isError: categoryIsError,
     error: categoryError,
-  } = useQuery(["catagories"], getCategories);
+  } = useQuery(['catagories'], getCategories);
 
   const {
     data: queriedData,
     isLoading: queryIsLoading,
     isError: queryError,
-  } = useQuery(["mealsByQuery", query], getQueriedMeals, {
-    enabled: query !== "",
+  } = useQuery(['mealsByQuery', query], getQueriedMeals, {
+    enabled: query !== '',
   });
 
   const { data, isLoading, isError } = useQuery(
-    ["mealsByCategory", selectedCategory],
+    ['mealsByCategory', selectedCategory],
     getMeals,
     {
-      enabled: query === "",
+      enabled: query === '',
     }
   );
 
@@ -70,16 +70,16 @@ function Meals() {
     const timeout = setTimeout(() => {
       if (searchText) {
         setQuery(searchText);
-        setSelectedCategory("");
+        setSelectedCategory('');
       } else {
-        setQuery("");
+        setQuery('');
         if (categories) {
           setSelectedCategory(categories[0].strCategory);
         }
       }
     }, 300);
     return () => {
-      setQuery("");
+      setQuery('');
       clearTimeout(timeout);
     };
   }, [searchText, categories]);

@@ -1,14 +1,14 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/router";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 function Login() {
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -17,7 +17,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await signIn("credentials", {
+    const result = await signIn('credentials', {
       email: data.email,
       password: data.password,
       redirect: false,
@@ -25,7 +25,7 @@ function Login() {
     if (result.error) {
       setError(result.error);
     } else {
-      router.push("/homePage");
+      router.push('/homePage');
       // router.push(router.query.redirect || "/homePage");
     }
   };
@@ -36,7 +36,7 @@ function Login() {
           {error && <p className="text-red-600 text-2xl">{error}</p>}
           <div className="p-6 pl-0 pt-2 text-7xl text-gray-900 dark:text-white font-semibold">
             <h2>
-              {" "}
+              {' '}
               <span className="text-orange-500">Frace</span>Recipes🍂
             </h2>
           </div>
@@ -111,7 +111,7 @@ function Login() {
             Login
           </button>
           <div className="text-3xl font-medium text-gray-500 dark:text-gray-300">
-            Not registered?{" "}
+            Not registered?{' '}
             <Link
               href="./register"
               className="text-orange-700 hover:underline dark:text-orange-500"

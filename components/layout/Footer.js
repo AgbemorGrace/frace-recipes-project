@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import classes from "./Footer.module.scss";
-import Logo from "../../images/FraceLogo21.png";
-import Text from "../text/Text";
+import React from 'react';
+import Image from 'next/image';
+import classes from './Footer.module.scss';
+import Logo from '../../images/FraceLogo21.png';
+import Text from '../text/Text';
 
 function Footer() {
   return (

@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import Link from "next/link";
-import React from "react";
-import classes from "./Button.module.scss";
+import clsx from 'clsx';
+import Link from 'next/link';
+import React from 'react';
+import classes from './Button.module.scss';
 
-function ButtonWithLink({ link = "/", children, variant = "secondary" }) {
+function ButtonWithLink({ link = '/', children, variant = 'secondary' }) {
   return (
     <Link href={link}>
       <a
@@ -17,7 +17,7 @@ function ButtonWithLink({ link = "/", children, variant = "secondary" }) {
 }
 function Button({
   children,
-  variant = "secondary",
+  variant = 'secondary',
   className,
   onClickHandler,
 }) {

@@ -1,7 +1,7 @@
-import React from "react";
-import Text from "../text/Text";
-import Title from "../text/Title";
-import classes from "./IngredientsTable.module.scss";
+import React from 'react';
+import Text from '../text/Text';
+import Title from '../text/Title';
+import classes from './IngredientsTable.module.scss';
 
 function IngredientsTable({ ingredientsWithMeasures }) {
   return (
