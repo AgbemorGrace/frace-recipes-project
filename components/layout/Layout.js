@@ -9,9 +9,9 @@ function Layout({ children }) {
   const router = useRouter();
   if (
     router.pathname !== '/' 
-    && router.pathname !== '/register' 
-    && router.pathname !== '/login'
-  ) {
+    &&router.pathname !== '/register' 
+    &&router.pathname !== '/login'
+ ){
     return (
       <>
         <div className={classes.container}>
