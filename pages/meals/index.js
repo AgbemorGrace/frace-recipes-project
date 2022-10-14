@@ -14,14 +14,7 @@ const override = {
   margin: '0 auto',
 };
 
-// getStaticProps
-export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/recipes`);
-  const data = await res.json();
-  return {
-    props: { recipes: data },
-  };
-};
+
 
 const getMeals = async ({ queryKey }) => {
   const { data } = await axios.get(`filter.php?c=${queryKey[1]}`);
@@ -38,7 +31,7 @@ const getCategories = async () => {
   return data.categories;
 };
 
-function Meals({recipes}) {
+function Meals() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
@@ -135,12 +128,6 @@ function Meals({recipes}) {
         && queriedData.length === 0 
         && <Text>No meals found</Text>}
 
-        {add 
-          - recipes.map((recipe) => (
-            <div key={recipe.id}>
-              <h3>{recipe.name}</h3>
-            </div>
-          ))}
       </div>
     </div>
   );
