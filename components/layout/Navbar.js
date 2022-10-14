@@ -7,7 +7,7 @@ import logo from '../../images/FraceLogo.png';
 function Navbar() {
   return (
     <nav className={classes.navbar}>
-      <Link href="/homePage">
+      <Link href="/home-page">
         <a className={classes.logo}>
           <Image src={logo} alt="FraceRecipes logo" />
         </a>
@@ -17,7 +17,7 @@ function Navbar() {
           <Link href="/meals"> Meals </Link>
         </li>
         <li className="rounded-full p-2 px-3 hover:bg-orange-600">
-          <Link href="/savedMeals"> Saved List </Link>
+          <Link href="/saved-meals"> Saved List </Link>
         </li>
         <li className="rounded-full p-2 px-3 hover:bg-orange-600">
           <Link href="/add-recipe">Add a Recipe</Link>

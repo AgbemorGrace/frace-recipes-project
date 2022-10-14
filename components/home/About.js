@@ -21,7 +21,7 @@ function About() {
         <br />
         <span className="text-orange-600 text-5xl">Frace Recipes</span> was
         developed by
-        <span className="text-orange-600"> Mr. Franklin Boachie- Yiadom</span>
+        <span className="text-orange-600"> Mr. Franklin Boachie- Yiadom </span>
         and 
         <span className="text-orange-600"> Madam Grace Agbemor</span> in the
         year 2022 at Pre-Mest CodeCoast training. It was built to help users

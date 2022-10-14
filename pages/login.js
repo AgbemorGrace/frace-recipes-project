@@ -25,8 +25,8 @@ function Login() {
     if (result.error) {
       setError(result.error);
     } else {
-      router.push('/homePage');
-      // router.push(router.query.redirect || "/homePage");
+      router.push('/home-page');
+      // router.push(router.query.redirect || "/home-page");
     }
   };
   return (

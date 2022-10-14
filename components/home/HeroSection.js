@@ -22,7 +22,7 @@ function HeroSection() {
               </ButtonWithLink>
             </div>
             <div className="rounded-full p-2 px-3 hover:bg-orange-600">
-              <ButtonWithLink link="/savedMeals">Saved Meals</ButtonWithLink>
+              <ButtonWithLink link="/saved-meals">Saved Meals</ButtonWithLink>
             </div>
           </div>
         </div>
