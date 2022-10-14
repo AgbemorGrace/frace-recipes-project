@@ -17,16 +17,7 @@ function HomePage() {
 
   return (
     <div>
-      {status === 'authenticated' ? (
-        <button
-          type="button"
-          onClick={() => signOut({ callBackUrl: '/login' })}
-        >
-          logout
-        </button>
-      ) : (
-        <button type="button">login</button>
-      )}
+      
       <HeroSection />
       <About />
     </div>
